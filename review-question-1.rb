@@ -27,7 +27,7 @@ pokemon = [
   "height": 10,
   "is_default": true,
   "order": 1,
-  "weight": 90,
+  "weight": 80,
   "abilities": [
       {
           "is_hidden": true,
@@ -60,10 +60,23 @@ pokemon = [
 }
 ]
 
-
 # How would you get the url for Bulbasaur's ability?
+
+pokemon[0][:abilities][0][:ability][:url]
+
 # How would you return the first pokemon with base experience over 40?
+
+pokemon.find {|monster| monster[:base_experience] > 40 }
+
 # How would you return ALL OF THE pokemon with base experience over 40? (Gotta catch em all)
+
+pokemon.select {|monster| monster[:base_experience] > 40 }
+
 # How would you return an array of all of the pokemon's names?
+
+pokemon.map {|monster| monster[:name]}
+
 # How would you determine whether or not the pokemon array contained any pokemon with a weight greater than 60?
 #  whatever method you use should return true if there are any such pokemon, false if not.
+
+pokemon.any? {|monster| monster[:weight] > 60}
